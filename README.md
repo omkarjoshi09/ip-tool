@@ -14,11 +14,9 @@ Dockerfile dockerizes the application so application can be portable. There are 
 
 How to Run:
 1. docker run <image_name> : This will print just the networks present in the cluster  OR
-2. docker run <image_name> --check-collision <file_name> - This will check for colliding networks and print that.
+2. docker run <image_name> --check-collision <file_name> : This will check for colliding networks and print that.
 
 (Deployment.yaml)
 Deploys the application in pod. By default I have written it in such a way that it will execute "python3 interview.py --check-collision abc.txt".
 Also for this example's sake, I have kept pod up for infinity time.
-
-I have also added screenshots of the implementation in results folder.
 
