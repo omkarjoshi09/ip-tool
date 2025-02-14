@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ip-tool-omkar
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ip-tool-omkar
+  template:
+    metadata:
+      labels:
+        app: ip-tool-omkar
+    spec:
+      serviceAccountName: pod-reader
+      containers:
+      - name: ip-tool-omkar
+        image: joshiomkar09/ip-tool:v2
+        command: ["/bin/sh", "-c"]
+        args: ["python /app/interview.py --check-collision abc.txt && sleep infinity"]
+        imagePullPolicy: Always
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+          limits:
+            cpu: 200m
+            memory: 1Gi
